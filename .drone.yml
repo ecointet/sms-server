@@ -1,0 +1,14 @@
+kind: pipeline
+name: default
+
+steps:
+## Docker Image Build and push
+- name: DockerImageCreation  
+  image: plugins/docker
+  settings:
+    username: ecointet
+    password:
+      from_secret: ecointet-docker-hub-password
+    repo: ecointet/sms-server
+    dockerfile: Dockerfile
+    tag: "0.1"
