@@ -6,7 +6,7 @@ WORKDIR /usr/app
 RUN npm i -g @nestjs/cli
 RUN nest new sms --skip-install
 RUN cd sms
-RUN npm install plivo
+RUN npm install plivo --force
 RUN npm i
 
 #ARGS
