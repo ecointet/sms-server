@@ -6,12 +6,20 @@ steps:
 - name: DockerImageCreation  
   image: plugins/docker
   environment:
-      TOKEN:
-        from_secret: one_of_the_tokens
+      AUTH_ID:
+        from_secret: AUTH_ID
+      AUTH_TOKEN:
+        from_secret: AUTH_TOKEN
+      SOURCE:
+        from_secret: SOURCE
   settings:
     username: ecointet
     password:
       from_secret: ecointet-docker-hub-password
+    build_args_from_env:
+        - AUTH_ID
+        - AUTH_TOKEN
+        - SOURCE
     repo: ecointet/sms-server
     dockerfile: Dockerfile
     tag: "0.2"
