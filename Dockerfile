@@ -6,7 +6,7 @@ WORKDIR /usr/app
 RUN npm i -g @nestjs/cli
 RUN nest new sms --skip-install
 RUN cd sms
-RUN npm install plivo --force
+RUN npm install plivo
 RUN npm i
 
 #ARGS
@@ -18,7 +18,7 @@ ARG SOURCE
 COPY ./numbers.ts ./sms/src/app.controller.ts
 
 WORKDIR /usr/app/sms
-RUN npm install express
+RUN npm install express --force
 
 EXPOSE 3000
 CMD ["npm", "run", "start"]
