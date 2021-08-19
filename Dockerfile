@@ -9,6 +9,11 @@ RUN cd sms
 RUN npm install plivo
 RUN npm i
 
+#ARGS
+ARG AUTH_ID
+ARG AUTH_TOKEN
+ARG SOURCE
+
 # COPY MAIN FILE
 COPY ./numbers.ts ./sms/src/app.controller.ts
 

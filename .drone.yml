@@ -5,10 +5,13 @@ steps:
 ## Docker Image Build and push
 - name: DockerImageCreation  
   image: plugins/docker
+  environment:
+      TOKEN:
+        from_secret: one_of_the_tokens
   settings:
     username: ecointet
     password:
       from_secret: ecointet-docker-hub-password
     repo: ecointet/sms-server
     dockerfile: Dockerfile
-    tag: "0.1"
+    tag: "0.2"
